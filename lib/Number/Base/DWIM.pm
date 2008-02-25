@@ -2,10 +2,13 @@ package Number::Base::DWIM;
 
 use strict;
 use warnings;
+
+use 5.006002;
+
 use overload;
 use Scalar::Util qw(dualvar);
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 =head1 NAME
 
@@ -61,6 +64,8 @@ it under the same terms as Perl itself.
 sub import {
   my $self = shift;
   overload::constant binary => sub { dualvar(oct $_[0], $_[0]) };
+  
+  return;
 }
 
 1;
